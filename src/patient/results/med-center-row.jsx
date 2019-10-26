@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'semantic-ui-react';
+import { List, Table } from 'semantic-ui-react';
 import ResultRow from './resut-row';
 
 export default class MedCenterRow extends React.Component {
@@ -22,7 +22,26 @@ export default class MedCenterRow extends React.Component {
         return (
             <List.Item>
                 {orgName}
-                <List.List celled divided>
+                <Table striped>
+                    <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>index</Table.HeaderCell>
+                        <Table.HeaderCell>Title</Table.HeaderCell>
+                        <Table.HeaderCell>Doctor</Table.HeaderCell>
+                        <Table.HeaderCell>Creation date</Table.HeaderCell>
+                    </Table.Row>
+                    </Table.Header>
+
+                    {/* <Table.Body>
+                    <Table.Row>
+                        <Table.Cell>John Lilki</Table.Cell>
+                        <Table.Cell>September 14, 2013</Table.Cell>
+                        <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
+                        <Table.Cell>No</Table.Cell>
+                    </Table.Row>
+
+                    </Table.Body> */}
+                <Table.Body>
                     {
                         data.map(({ doc, file, message, title, date }, i) => {
                             return (
@@ -37,7 +56,8 @@ export default class MedCenterRow extends React.Component {
                             );
                         })
                     }
-                </List.List>
+                </Table.Body>
+                </Table>
             </List.Item>
         );
     }
