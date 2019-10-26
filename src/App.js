@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css';
+import Results from './results/';
+import { Grid, Tab } from 'semantic-ui-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App() {
+  const panes = [
+    {
+      menuItem: 'My records',
+      render: () => 
+        <Tab.Pane attached={false}>
+            <Grid>
+            <Grid.Column width="10" floated="left">
+              <Results />
+            </Grid.Column>
+      </Grid>
+        </Tab.Pane>,
+    },
+    {
+      menuItem: 'Requests',
+      render: () => <Tab.Pane attached={false}><React.Fragment>hi</React.Fragment></Tab.Pane>,
+    },
+  ]
+  
+  return (
+    <Tab menu={{ secondary: true }} panes={panes} />
+  );
 }
 
-export default App;
+export default App;
+
