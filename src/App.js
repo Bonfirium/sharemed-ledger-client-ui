@@ -11,10 +11,10 @@ function App() {
       render: () => 
         <Tab.Pane attached={false}>
             <Grid>
-            <Grid.Column width="10" floated="left">
-              <Results />
-            </Grid.Column>
-      </Grid>
+              <Grid.Column width="10" floated="left">
+                <Results />
+              </Grid.Column>
+            </Grid>
         </Tab.Pane>,
     },
     {

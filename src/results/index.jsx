@@ -1,8 +1,32 @@
 import React from 'react';
-import { List, Image, Grid, Label } from 'semantic-ui-react';
+import { List} from 'semantic-ui-react';
+import ResultRow from './med-center-row';
 
-const dataOrg1 = [{ orgName: 'medcent1', doc: 'doc1', file: 'crop.jpeg', message: 'you are fine...' }];
-const base = [{ orgName: 'medcent1', data: dataOrg1 }];
+const dataOrg1 = [{
+        doc: 'Николай',
+        title: 'Проверка на пидлоа',
+        date: (new Date()).toISOString(),
+        file: 'crop.jpeg',
+        message: 'i hava bad news for you...' 
+    },{
+        doc: 'Михаил',
+        title: 'Проверка очка',
+        date: (new Date()).toISOString(),
+        file: 'crop.jpeg',
+        message: 'it is so large...' 
+    }];
+
+    const dataOrg2 = [{
+        doc: 'Никита',
+        title: 'измерение пениса',
+        date: (new Date()).toISOString(),
+        file: 'crop.jpeg',
+        message: 'you are no fine...' 
+    }];
+const base = [
+    { orgName: 'medcent1', data: dataOrg1 },
+    { orgName: 'medcent2', data: dataOrg2 },
+];
 export default class Results extends React.Component {
 
     render () {
@@ -12,40 +36,10 @@ export default class Results extends React.Component {
                 {
                     base.map(({ orgName, data }) => {
                         return (
-                            <List.Item>
-                                {orgName}
-                                <List.List>
-                                    {
-                                        data.map(({doc, file, message }, i) => {
-                                            return (
-                                                <List.Item>
-                                                    {/* <List.Icon name='users' /> */}
-                                                    <List.Content>
-                                                        <Grid>
-                                                            <Grid.Row>
-                                                                <Grid.Column width={2} />
-                                                                <Grid.Column width={1}>
-                                                                    {i + 1}
-                                                                </Grid.Column>
-                                                                <Grid.Column width={3}>
-                                                                    {doc}
-                                                                </Grid.Column>
-                                                                <Grid.Column width={4}>
-                                                                    {message}
-                                                                </Grid.Column>
-                                                                <Grid.Column width={4}>
-                                                                    <Image src={file} />
-                                                                </Grid.Column>
-                                                                <Grid.Column width={2} />
-                                                            </Grid.Row>
-                                                        </Grid>
-                                                    </List.Content>
-                                                </List.Item>
-                                            );
-                                        })
-                                    }
-                                </List.List>
-                            </List.Item>
+                            <ResultRow
+                                orgName={orgName}
+                                data={data}
+                            />
                         );
                     })
                 }
