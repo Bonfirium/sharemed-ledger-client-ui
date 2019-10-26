@@ -1,4 +1,5 @@
-
+@import './App.css';
+@import './results.css';
 
 .records-container{
     display: flex;
@@ -10,6 +11,6 @@
     width: 1000px;
 }
 
-.result-row {
+.result-title {
     background: '#f5fdfd';
 }
