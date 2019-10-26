@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Results from './results/';
+import ShareRequest from './share-request/';
 import { Grid, Tab } from 'semantic-ui-react';
 
 
@@ -19,7 +20,14 @@ function App() {
     },
     {
       menuItem: 'Requests',
-      render: () => <Tab.Pane attached={false}><React.Fragment>hi</React.Fragment></Tab.Pane>,
+      render: () =>
+        <Tab.Pane attached={false}>
+          <Grid>
+              <Grid.Column width="10" floated="left">
+                <ShareRequest/>
+              </Grid.Column>
+            </Grid>
+        </Tab.Pane>,
     },
   ]
   

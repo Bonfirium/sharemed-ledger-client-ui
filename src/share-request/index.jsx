@@ -4,25 +4,26 @@ import MedCenterRow from './med-center-row';
 
 const dataOrg1 = [{
         doc: 'Николай',
-        title: 'Проверка на пидлоа',
+        title: 'Проверка 2',
         date: (new Date()).toISOString(),
-        file: 'crop.jpeg',
-        message: 'i hava bad news for you...' 
+        id: Math.random().toString(10).substring(2, 15) + Math.random().toString(10).substring(2, 15),
+        message: 'plese give me acces to your data for analyse',
     },{
         doc: 'Михаил',
-        title: 'Проверка очка',
+        title: 'Проверка 3',
         date: (new Date()).toISOString(),
-        file: 'crop.jpeg',
-        message: 'it is so large...' 
+        id: Math.random().toString(10).substring(2, 15) + Math.random().toString(10).substring(2, 15),
+        message: 'plese give me acces to your data for analyse',
     }];
 
     const dataOrg2 = [{
         doc: 'Никита',
-        title: 'измерение пениса',
+        title: 'Проверка 3',
         date: (new Date()).toISOString(),
-        file: 'crop.jpeg',
-        message: 'you are no fine...' 
+        id: Math.random().toString(10).substring(2, 15) + Math.random().toString(10).substring(2, 15),
+        message: 'plese give me acces to your data for analyse',
     }];
+
 const base = [
     { orgName: 'medcent1', data: dataOrg1 },
     { orgName: 'medcent2', data: dataOrg2 },
@@ -40,6 +41,8 @@ export default class Results extends React.Component {
                             <MedCenterRow
                                 orgName={orgName}
                                 data={data}
+                                onAccept={() => {}}
+                                onDismiss={() => {}}
                             />
                         );
                     })
