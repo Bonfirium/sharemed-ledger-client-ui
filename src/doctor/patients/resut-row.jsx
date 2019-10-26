@@ -22,46 +22,46 @@ export default class ResultRow extends React.Component {
         return (
             <List.Item>
                 <List.Content>
-                    <Accordion>
+                    <Accordion className='result-title'>
                         <Accordion.Title
                             active={this.state.open}
                             onClick={this.handleClick}
+                            // className='result-row'
                         >
                             <Grid>
                                 <Grid.Row>
-                                    <Grid.Column width={1}>
+                                    <Grid.Column className="one wide column">
                                         <Icon name='dropdown' />
                                     </Grid.Column>
-                                    <Grid.Column width={1}>
+                                    <Grid.Column className="one wide column">
                                         {i + 1}
                                     </Grid.Column>
-                                    <Grid.Column width={3}>
+                                    <Grid.Column className="five wide column">
                                         <Container text>
                                             {title}
                                         </Container>
                                     </Grid.Column>
-                                    <Grid.Column width={2}>
+                                    <Grid.Column className="three wide column">
                                         <Container text>
                                             {pacientName}
                                         </Container>
                                     </Grid.Column>
-                                    <Grid.Column width={4}>
+                                    <Grid.Column className="three wide column">
                                         {date}
                                     </Grid.Column>
-                                    <Grid.Column width={2} />
                                 </Grid.Row>
                             </Grid>
                         </Accordion.Title>
                         <Accordion.Content active={this.state.open}>
                         <Grid>
                             <Grid.Row>
-                                <Grid.Column width={1} />
-                                <Grid.Column width={5}>
+                                <Grid.Column className="one wide column" />
+                                <Grid.Column className="seven wide column">
                                     <Container text>
                                         {message}
                                     </Container>
                                 </Grid.Column>
-                                <Grid.Column width={5}>
+                                <Grid.Column className="one wide column">
                                     <Image src={file} />
                                 </Grid.Column>
                             </Grid.Row>
