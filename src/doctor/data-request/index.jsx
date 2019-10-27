@@ -1,53 +1,53 @@
 import React from 'react';
-import { List} from 'semantic-ui-react';
-import MedCenterRow from './med-center-row';
+import { Icon, Button, Header, Modal } from 'semantic-ui-react';
 
-const dataOrg1 = [{
-        doc: 'Николай',
-        title: 'Проверка 2',
-        date: (new Date()).toISOString(),
-        id: Math.random().toString(10).substring(2, 15) + Math.random().toString(10).substring(2, 15),
-        message: 'plese give me acces to your data for analyse',
-    },{
-        doc: 'Михаил',
-        title: 'Проверка 3',
-        date: (new Date()).toISOString(),
-        id: Math.random().toString(10).substring(2, 15) + Math.random().toString(10).substring(2, 15),
-        message: 'plese give me acces to your data for analyse',
-    }];
-
-    const dataOrg2 = [{
-        doc: 'Никита',
-        title: 'Проверка 3',
-        date: (new Date()).toISOString(),
-        id: Math.random().toString(10).substring(2, 15) + Math.random().toString(10).substring(2, 15),
-        message: 'plese give me acces to your data for analyse',
-    }];
-
-const base = [
-    { orgName: 'medcent1', data: dataOrg1 },
-    { orgName: 'medcent2', data: dataOrg2 },
-];
 
 export default class Results extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            modalOpen: false,
+        }
+    }
+
+    handleOpen() {
+        this.setState({ modalOpen: true });
+    }
+
+    handleClose() {
+        this.setState({ modalOpen: false }); 
+    }
+
+    renderDetailsModal() {
+        return (
+            <Modal
+                open={this.state.modalOpen}
+                onClose={this.handleClose.bind(this)}
+            >
+                <Modal.Description>
+                    <Header>Enter user id</Header>
+                </Modal.Description>
+                <Modal.Actions> 
+                    <Button color='green' onClick={this.handleClose.bind(this)}>Close</Button>
+                </Modal.Actions>
+            </Modal>
+        );
+    }
+
     render () {
         return (
-
-            <List>
-                {
-                    base.map(({ orgName, data }) => {
-                        return (
-                            <MedCenterRow
-                                orgName={orgName}
-                                data={data}
-                                onAccept={() => {}}
-                                onDismiss={() => {}}
-                            />
-                        );
-                    })
-                }
-            </List>
+           <React.Fragment>
+                <Button
+                    color='green'
+                    inverted
+                    onClick={this.handleOpen.bind(this)}
+                >
+                    <Icon name='plus' />
+                </Button>
+                {this.renderDetailsModal()}
+           </React.Fragment>
         );
     }
 }

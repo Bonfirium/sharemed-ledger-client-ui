@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Image, Grid, Accordion, Icon, Container } from 'semantic-ui-react';
+import { Table, Image, Button, Header, Modal, Container } from 'semantic-ui-react';
 
 export default class ResultRow extends React.Component {
 
@@ -7,67 +7,56 @@ export default class ResultRow extends React.Component {
         super(props);
 
         this.state = {
-            open: false,
+            modalOpen: false,
         }
     }
 
-    handleClick = (e) => {
-        e.preventDefault();
-        this.setState({ open: !this.state.open })
-      }
+    handleOpen() {
+        this.setState({ modalOpen: true });
+    }
 
-    render () {
-        const {doc, file, message, title, date, i } = this.props;
+    handleClose() {
+        this.setState({ modalOpen: false }); 
+    }
+
+    renderDetailsModal() {
+        const {doc, file, message, title} = this.props;
 
         return (
-            
-                        <Table.Row>
-                    
-                            <Table.Cell>{i + 1}</Table.Cell>
-                            <Table.Cell>{title}</Table.Cell>
-                            <Table.Cell>{doc}</Table.Cell>
-                            <Table.Cell>{date}</Table.Cell>
-                            {/* <Grid>
-                                <Grid.Row>
-                                    <Grid.Column width={1}>
-                                        <Icon name='dropdown' />
-                                    </Grid.Column>
-                                    <Grid.Column width={1}>
-                                        {i + 1}
-                                    </Grid.Column>
-                                    <Grid.Column width={3}>
-                                        <Container text>
-                                            {title}
-                                        </Container>
-                                    </Grid.Column>
-                                    <Grid.Column width={2}>
-                                        <Container text>
-                                            {doc}
-                                        </Container>
-                                    </Grid.Column>
-                                    <Grid.Column width={4}>
-                                        {date}
-                                    </Grid.Column>
-                                    <Grid.Column width={2} />
-                                </Grid.Row>
-                            </Grid> */}
-                        {/* <Accordion.Content active={this.state.open}>
-                            <Grid>
-                                <Grid.Row>
-                                    <Grid.Column width={1} />
-                                    <Grid.Column width={5}>
-                                        <Container text>
-                                            {message}
-                                        </Container>
-                                    </Grid.Column>
-                                    <Grid.Column width={5}>
-                                        <Image src={file} />
-                                    </Grid.Column>
-                                </Grid.Row>
-                            </Grid>
-                        </Accordion.Content> */}
-                </Table.Row>
+            <Modal
+                open={this.state.modalOpen}
+                onClose={this.handleClose.bind(this)}
+            >
+                <Modal.Header>{doc}</Modal.Header>
+                <Modal.Content image scrolling>
+                <Image size='medium' src={file} wrapped />
 
+                <Modal.Description>
+                    <Header>{title}</Header>
+                    <Container text>{message}</Container>
+                </Modal.Description>
+                </Modal.Content>
+                <Modal.Actions> 
+                    <Button primary onClick={this.handleClose.bind(this)}>Close</Button>
+                </Modal.Actions>
+            </Modal>
+        );
+    }
+
+    render () {
+        const {doc, title, date, i } = this.props;
+
+        return (
+            <React.Fragment>
+                <Table.Row>
+                    <Table.Cell>{i + 1}</Table.Cell>
+                    <Table.Cell>{title}</Table.Cell>
+                    <Table.Cell>{doc}</Table.Cell>
+                    <Table.Cell>{date}</Table.Cell>
+                    <Table.Cell><Button primary onClick={this.handleOpen.bind(this)}>Show details</Button></Table.Cell>
+                </Table.Row>
+                {this.renderDetailsModal()}
+            </React.Fragment>
         );
                     
     }

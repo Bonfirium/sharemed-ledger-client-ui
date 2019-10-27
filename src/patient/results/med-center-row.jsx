@@ -29,6 +29,7 @@ export default class MedCenterRow extends React.Component {
                         <Table.HeaderCell>Title</Table.HeaderCell>
                         <Table.HeaderCell>Doctor</Table.HeaderCell>
                         <Table.HeaderCell>Creation date</Table.HeaderCell>
+                        <Table.HeaderCell>Details</Table.HeaderCell>
                     </Table.Row>
                     </Table.Header>
 
