@@ -33,10 +33,10 @@ export default class Patient extends React.Component {
           
           return (
             <div class='records-container'>
-            <div className='records-tab'>
-              <Tab menu={{ secondary: true }} panes={panes} />
-        </div>
-        </div>
+                <div className='records-tab'>
+                  <Tab menu={{ secondary: true }} panes={panes} />
+                </div>
+            </div>
           );
     }
 }
