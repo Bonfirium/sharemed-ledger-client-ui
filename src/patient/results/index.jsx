@@ -32,7 +32,8 @@ export default class Results extends React.Component {
 
     render () {
         return (
-
+            <div className='result-container'>
+                <div className='result'>
             <List>
                 {
                     base.map(({ orgName, data }) => {
@@ -45,6 +46,8 @@ export default class Results extends React.Component {
                     })
                 }
             </List>
+            </div>
+            </div>
         );
     }
 }

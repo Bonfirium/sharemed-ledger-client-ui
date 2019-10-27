@@ -14,3 +14,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.root {
+  height: 100%;
+} 
+
+.records-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.records-tab{
+  width: 1000px;
+}
+
+.result-title {
+  background: '#f5fdfd';
+}

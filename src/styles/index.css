@@ -1,0 +1,16 @@
+@import './App.css';
+@import './results.css';
+
+.records-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.records-tab{
+    width: 1000px;
+}
+
+.result-title {
+    background: '#f5fdfd';
+}

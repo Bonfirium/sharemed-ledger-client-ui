@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Patient from './patient';
 import Doctor from './doctor';
 import Reg from './reg';
